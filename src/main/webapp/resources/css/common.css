@@ -1,0 +1,7 @@
+
+table.list_type {width:800px; margin:5px 0 0 0;}
+table.list_type th,td {background:none}
+table.list_type th {height:33px; font-family:dotum; font-size:11px; color:#688baf;}
+table.list_type td {padding:6px 0 6px 0; border-bottom:dotted 1px ccc; text-align:center ; }
+table.list_type td.num {font-size:11px; color:#999999;text-align:center;}
+table.list_type td.left {text-align:left;}

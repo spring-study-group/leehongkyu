@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+
+
+<decorators defaultdir="/decorators">
+	<!-- sitemesh 제외 부분 -->
+<!-- 	<excludes> -->
+<!-- 	<pattern></pattern> -->
+<!-- 	</excludes> -->
+
+	<decorator name="testHeader" page="/WEB-INF/views/layout/header.jsp">
+	<pattern>/*</pattern>
+	</decorator>
+
+	<decorator name="mainLayout" page="/WEB-INF/views/layout/mainLayout.jsp">
+	<pattern>/*</pattern>
+	</decorator>
+
+</decorators>

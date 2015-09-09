@@ -1,8 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-	
+<beans  xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:beans="http://www.springframework.org/schema/beans"
+
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+							http://www.springframework.org/schema/beans/spring-beans.xsd
+							http://www.springframework.org/schema/context
+							http://www.springframework.org/schema/context/spring-context-3.1.xsd
+							">
+
 	<!-- Root Context: defines shared resources visible to all other web components -->
-		
+	<context:property-placeholder location="classpath:/properties/todo.properties" />
+
+	<!-- Jdbc Db Connection -->
+	<beans:bean id="dataSourceTmp" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<beans:property name="driverClassName" 	value="${todo.database.jdbc.oracle.driverClassName}" />
+		<beans:property name="url" 				value="${todo.database.jdbc.oracle.first.url}" />
+		<beans:property name="username" 		value="${todo.database.jdbc.oracle.first.username}" />
+		<beans:property name="password" 		value="${todo.database.jdbc.oracle.first.password}" />
+	</beans:bean>
+
+	<!-- Query Log -->
+	<beans:bean id="dataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
+		<beans:constructor-arg ref="dataSourceTmp" />
+		<beans:property name="logFormatter" >
+			<beans:bean class="net.sf.log4jdbc.tools.Log4JdbcCustomFormatter">
+				<beans:property name="loggingType" 	value="MULTI_LINE"/>
+				<beans:property name="sqlPrefix" 	value="\n＃＃＃＃＃＃＃＃＃＃＃   SQL ＃＃＃＃＃＃＃＃＃＃＃\n"/>
+			</beans:bean>
+		</beans:property>
+	</beans:bean>
+
+
+	<!-- Transaction Manager -->
+	<beans:bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<beans:property name="dataSource" ref="dataSourceTmp"/>
+	</beans:bean>
+
+	<!-- Mybatis Setting -->
+	<beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<beans:property name="dataSource" 		ref="dataSourceTmp"/>
+		<beans:property name="configLocation" 	value="WEB-INF/mybatis/mybatis-config.xml"/>
+	</beans:bean>
+
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" 				value="com.hklee.study" />
+		<property name="annotationClass" 			value="com.hklee.study.common.FirstRepository"/>
+		<property name="sqlSessionFactoryBeanName" 	value="sqlSessionFactory"/>
+	</bean>
+
+
 </beans>
