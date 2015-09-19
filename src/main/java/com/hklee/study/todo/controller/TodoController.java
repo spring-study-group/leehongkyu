@@ -47,4 +47,45 @@ public class TodoController {
 
 	}
 
+	/**
+	 * Todo 신규 화면
+	 * @param request
+	 * @param model
+	 */
+	@RequestMapping(value="createTodo.do")
+	public void createTodo(HttpServletRequest request, Model model){
+		logger.info("=============createTodo===============");
+	}
+
+	/**
+	 * Todo 신규 저장
+	 * @param request
+	 * @param model
+	 */
+	@RequestMapping(value="writeTodo.do")
+	public String writeTodo(HttpServletRequest request, TodoDto todo){
+		logger.info("=============writeTodo===============");
+		return "redirect:/todo/viewTodoManagerList.do";
+	}
+
+	/**
+	 * Todo 수정 화면
+	 * @param request
+	 * @param model
+	 */
+	@RequestMapping(value="modifyTodo.do")
+	public void modifyTodo(HttpServletRequest request, Model model){
+
+	}
+
+	/**
+	 * Todo 삭제
+	 * @param request
+	 * @param model
+	 */
+	@RequestMapping(value="deleteTodo.do")
+	public void deleteTodo(HttpServletRequest request, Model model){
+
+	}
+
 }

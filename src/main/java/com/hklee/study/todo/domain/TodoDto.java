@@ -8,8 +8,38 @@ public class TodoDto {
 	private String fromYmd;
 	private String toYmd;
 	private String writeDate;
+	private String bigo;
+	private String fromHour;
+	private String toHour;
+	private String hourGubn;
 
 
+
+
+	public String getHourGubn() {
+		return hourGubn;
+	}
+	public void setHourGubn(String hourGubn) {
+		this.hourGubn = hourGubn;
+	}
+	public String getBigo() {
+		return bigo;
+	}
+	public void setBigo(String bigo) {
+		this.bigo = bigo;
+	}
+	public String getFromHour() {
+		return fromHour;
+	}
+	public void setFromHour(String fromHour) {
+		this.fromHour = fromHour;
+	}
+	public String getToHour() {
+		return toHour;
+	}
+	public void setToHour(String toHour) {
+		this.toHour = toHour;
+	}
 	public String getrNum() {
 		return rNum;
 	}

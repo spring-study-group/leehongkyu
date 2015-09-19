@@ -5,10 +5,14 @@
 
 <html>
 
+	<link rel="stylesheet" href="<c:url value="/resources/jquery-ui-1.11.4.custom/jquery-ui.min.css"/>"/>
+	<link rel="stylesheet" href="<c:url value="/resources/jquery-timepicker-master/jquery.timepicker.css"/>"/>
+	<link rel="stylesheet" href="<c:url value="/resources/css/common.css"/>" type="text/css" />
 
 	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-	<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-	<link rel="stylesheet" href="<c:url value="/resources/css/common.css"/>" type="text/css" />
+
+	<script src="<c:url value="/resources/jquery-ui-1.11.4.custom/jquery-ui.min.js" />"></script>
+	<script src="<c:url value="/resources/jquery-timepicker-master/jquery.timepicker.min.js" />"></script>
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

@@ -11,12 +11,19 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
+		//작성 버튼 클릭 이벤트
+		$("#btnWrite").click(function(){
+
+			$("#frm_list").attr("action", "<c:url value="/todo/createTodo.do"/>");
+			$("#frm_list").submit();
+
+		});
 	});
 </script>
 
 <body>
 
-	<form id="frm_list" action="" >
+	<form id="frm_list" >
 		<table class="list_type">
 			<colgroup>
 				<col width="5%"/>
@@ -30,7 +37,7 @@
 			<thead>
 				<tr>
 					<th>번호</th>
-					<th>일정</th>
+					<th>할일</th>
 					<th>전화번호</th>
 					<th>시작일자</th>
 					<th>종료일자</th>
@@ -69,6 +76,11 @@
 		</table>
 	</form>
 
+
+	<br/>
+	<div id="divBottom">
+		<input type="button" id="btnWrite" value="작성">
+	</div>
 
 </body>
 </html>
